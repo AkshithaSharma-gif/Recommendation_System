@@ -49,58 +49,90 @@ function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-900 px-4">
-      <div className="w-full max-w-md bg-slate-800 p-8 rounded-2xl shadow-xl">
-        <h1 className="text-3xl font-bold text-white text-center mb-2">
-          Welcome Back
-        </h1>
+  <div
+    className="min-h-screen flex items-center justify-center bg-cover bg-center relative"
+    style={{
+      backgroundImage:
+        "url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba')",
+    }}
+  >
+    {/* Overlay */}
+    <div className="absolute inset-0 bg-black/75"></div>
 
-        <p className="text-gray-400 text-center mb-6">
-          Login to your account
-        </p>
+    {/* Login Card */}
+    <div className="relative z-10 w-full max-w-md px-4">
+      <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-3xl p-8 shadow-2xl">
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <input
-            type="email"
-            name="email"
-            placeholder="Enter Email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            className="w-full p-3 rounded-lg bg-slate-700 text-white outline-none focus:ring-2 focus:ring-red-500"
-          />
+        <div className="text-center mb-8">
+          <h1 className="text-5xl font-extrabold text-red-500">
+            MovieFlix
+          </h1>
 
-          <input
-            type="password"
-            name="password"
-            placeholder="Enter Password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-            className="w-full p-3 rounded-lg bg-slate-700 text-white outline-none focus:ring-2 focus:ring-red-500"
-          />
+          <p className="text-gray-300 mt-2">
+            Welcome Back
+          </p>
+        </div>
+
+        <form
+          onSubmit={handleSubmit}
+          className="space-y-5"
+        >
+          <div>
+            <label className="text-gray-300 text-sm block mb-2">
+              Email
+            </label>
+
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Enter your email"
+              required
+              className="w-full p-4 bg-slate-900/70 border border-slate-700 rounded-xl text-white outline-none focus:border-red-500"
+            />
+          </div>
+
+          <div>
+            <label className="text-gray-300 text-sm block mb-2">
+              Password
+            </label>
+
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              placeholder="Enter your password"
+              required
+              className="w-full p-4 bg-slate-900/70 border border-slate-700 rounded-xl text-white outline-none focus:border-red-500"
+            />
+          </div>
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-red-500 hover:bg-red-600 transition text-white p-3 rounded-lg font-semibold disabled:bg-gray-500"
+            className="w-full bg-red-500 hover:bg-red-600 text-white p-4 rounded-xl font-bold transition-all duration-300"
           >
-            {loading ? "Logging in..." : "Login"}
+            {loading
+              ? "Logging in..."
+              : "Login"}
           </button>
         </form>
 
-        <p className="text-gray-400 text-center mt-6">
+        <p className="text-center text-gray-300 mt-6">
           Don't have an account?{" "}
           <Link
             to="/register"
-            className="text-red-400 hover:text-red-300"
+            className="text-red-400 hover:text-red-300 font-semibold"
           >
             Register
           </Link>
         </p>
       </div>
     </div>
-  );
+  </div>
+);
 }
 
 export default Login;
