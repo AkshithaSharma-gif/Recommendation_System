@@ -1,0 +1,47 @@
+###
+
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "Akshitha",
+  "email": "akshitha@gmail.com",
+  "password": "123456"
+}
+
+###
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "akshitha@gmail.com",
+  "password": "123456"
+}
+
+
+//movies
+###
+
+POST http://localhost:5000/api/movies/add
+Content-Type: application/json
+
+{
+  "title": "Inception",
+  "genre": "Sci-Fi",
+  "description": "Dream invasion",
+  "poster": "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c",
+  "rating": 8.8,
+  "year": 2010
+}
+
+
+###
+
+GET http://localhost:5000/api/movies
+Content-Type: application/json
+
+{
+    "_id": "...",
+    "title": "Interstellar",
+    "genre": "Sci-Fi"
+}
