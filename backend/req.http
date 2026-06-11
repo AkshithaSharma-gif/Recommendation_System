@@ -26,12 +26,13 @@ POST http://localhost:5000/api/movies/add
 Content-Type: application/json
 
 {
-  "title": "Hanu-Man",
-  "genre": "Action / Superhero / Fantasy",
-  "description": "An imaginary place called Anjanadri where a petty thief gets the powers of Lord Hanuman and fights for his village against a greedy evil force.",
-  "poster": "https://i.pinimg.com/736x/aa/92/13/aa92130b5dcbb96bd933c40ae7d798e2.jpg",
-  "rating": 7.9,
-  "year": 2024
+    "title": "Godavari",
+    "genre": "Romance Drama",
+    "description": "A young man and woman discover love and self-realization during a memorable boat journey on the Godavari River.",
+    "poster": "https://upload.wikimedia.org/wikipedia/en/8/8b/Godavari_film_poster.jpg",
+    "rating": 8.2,
+    "year": 2006
+
 }
 
 

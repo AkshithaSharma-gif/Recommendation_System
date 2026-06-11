@@ -13,3 +13,8 @@ export const likeMovie = (data) => {
 export const getRecommendations = (userId) => {
   return axios.get(`${API}/recommendations/${userId}`);
 };
+
+export const getLikedMovies = (userId) => {
+  return axios.get(`${API}/liked/${userId}`);
+};
+

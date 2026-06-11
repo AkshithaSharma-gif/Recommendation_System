@@ -4,7 +4,8 @@ import {
   addMovie,
   getMovies,
   likeMovie,
-  getRecommendations
+  getRecommendations,
+  getLikedMovies
 } from "../controllers/movieController.js";
 
 const router = express.Router();
@@ -19,5 +20,12 @@ router.get(
   "/recommendations/:userId",
   getRecommendations
 );
+
+router.get(
+  "/recommendations/:userId",
+  getRecommendations
+);
+
+router.get("/liked/:userId", getLikedMovies);
 
 export default router;
