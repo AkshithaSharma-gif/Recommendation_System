@@ -38,7 +38,7 @@ function Home() {
   const fetchMovies = async () => {
     try {
       const res = await getMovies();
-      setMovies(res.data);
+      setMovies(res.data?.movies || []);
     } catch (error) {
       console.log(error);
       toast.error("Failed to load movies");
@@ -149,17 +149,19 @@ localStorage.setItem(
   };
 
   // ✅ FILTER (UNCHANGED LOGIC)
-  const filteredMovies = movies
-    .filter((movie) => {
-      const matchesSearch = movie.title
-        .toLowerCase()
-        .includes(search.toLowerCase());
+const safeMovies = Array.isArray(movies) ? movies : [];
 
-      const matchesGenre =
-        selectedGenre === "All" || movie.genre === selectedGenre;
+const filteredMovies = safeMovies
+  .filter((movie) => {
+    const matchesSearch = movie.title
+      .toLowerCase()
+      .includes(search.toLowerCase());
 
-      return matchesSearch && matchesGenre;
-    })
+    const matchesGenre =
+      selectedGenre === "All" || movie.genre === selectedGenre;
+
+    return matchesSearch && matchesGenre;
+  });
 
     // ✅ ONLY ADD SORTING HERE (SAFE)
     .sort((a, b) => {
