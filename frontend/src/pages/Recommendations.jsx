@@ -31,6 +31,8 @@ function Recommendations() {
         res.data.likedMovies || []
       );
 
+      
+
     } catch (error) {
       console.log(error);
       toast.error("Failed to load recommendations");
@@ -152,14 +154,14 @@ function Recommendations() {
 
           <div className="flex flex-wrap gap-3">
 
-            {likedMovies.map((movie) => (
-              <span
-                key={movie._id}
-                className="bg-red-500/20 text-red-400 px-4 py-2 rounded-full"
-              >
-                {movie.title}
-              </span>
-            ))}
+            {likedMovies.map((movieId) => (
+  <span
+    key={movieId}
+    className="bg-red-500/20 text-red-400 px-4 py-2 rounded-full"
+  >
+    {movieId}
+  </span>
+))}
 
           </div>
 

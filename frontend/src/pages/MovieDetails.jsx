@@ -52,7 +52,7 @@ function MovieDetails() {
   const fetchAllMovies = async () => {
     try {
       const res = await getMovies();
-      setAllMovies(res.data);
+      setAllMovies(res.data?.movies || res.data || []);
     } catch (error) {
       console.log(error);
     }

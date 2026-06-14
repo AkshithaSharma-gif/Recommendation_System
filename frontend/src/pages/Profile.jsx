@@ -45,10 +45,11 @@ function Profile() {
     }, 800);
   };
 
-  const likedMovieObjects = movies.filter(
-    (movie) =>
-      likedMovies.includes(movie._id)
-  );
+  const safeMovies = Array.isArray(movies) ? movies : [];
+
+const likedMovieObjects = safeMovies.filter(
+  (movie) => likedMovies.includes(movie._id)
+);
 
   const genreCount = {};
 

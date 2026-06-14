@@ -27,7 +27,7 @@ function LikedMovies() {
     try {
       const res = await getLikedMovies(user._id);
 
-      setMovies(res.data);
+      setMovies(res.data?.likedMovies || res.data || []);
     } catch (error) {
       console.log(error);
 
