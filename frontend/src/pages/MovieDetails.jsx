@@ -24,9 +24,8 @@ function MovieDetails() {
   );
 
   const [likedMovies, setLikedMovies] = useState(
-    JSON.parse(localStorage.getItem("user"))
-      ?.likedMovies || []
-  );
+  JSON.parse(localStorage.getItem("user") || "{}")?.likedMovies || []
+);
 
   const [watchLaterMovies, setWatchLaterMovies] = useState(
   JSON.parse(localStorage.getItem("watchLater")) || []

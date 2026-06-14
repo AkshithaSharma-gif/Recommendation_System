@@ -22,7 +22,7 @@ function WatchLater() {
   const fetchMovies = async () => {
     try {
       const res = await getMovies();
-      setMovies(res.data);
+      setMovies(Array.isArray(res.data) ? res.data : []);
     } catch (error) {
       console.log(error);
       toast.error("Failed to load movies");
@@ -44,11 +44,13 @@ function WatchLater() {
     toast.success("Removed from Watch Later");
   };
 
-  const savedMovies = movies.filter((movie) =>
-    watchLaterMovies.some(
-      (id) => id.toString() === movie._id.toString()
-    )
-  );
+  const safeMovies = Array.isArray(movies) ? movies : [];
+
+const savedMovies = safeMovies.filter((movie) =>
+  watchLaterMovies.some(
+    (id) => id.toString() === movie._id.toString()
+  )
+);
 
   return (
     <div className="min-h-screen bg-black text-white">

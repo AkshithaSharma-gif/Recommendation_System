@@ -38,7 +38,7 @@ function Home() {
   const fetchMovies = async () => {
     try {
       const res = await getMovies();
-      setMovies(res.data?.movies || []);
+      setMovies(res.data || []);
     } catch (error) {
       console.log(error);
       toast.error("Failed to load movies");
