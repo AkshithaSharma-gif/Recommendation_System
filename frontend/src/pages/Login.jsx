@@ -38,7 +38,7 @@ function Login() {
 
       toast.success("Login Successful");
 
-      navigate("/");
+      navigate("/home");
     } catch (err) {
       toast.error(
         err.response?.data?.message || "Invalid email or password"

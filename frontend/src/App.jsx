@@ -8,12 +8,15 @@ import LikedMovies from "./pages/LikedMovies.jsx";
 import MovieDetails from "./pages/MovieDetails.jsx";
 import WatchLater from "./pages/WatchLater.jsx";
 import Profile from "./pages/Profile.jsx"
+import LandingPage from "./pages/LandingPage.jsx";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<LandingPage />} />
+        
+        <Route path="/home" element={<Home />} />
 
         <Route path="/login" element={<Login />} />
 
