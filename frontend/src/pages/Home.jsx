@@ -148,46 +148,6 @@ localStorage.setItem(
     }, 800);
   };
 
-  // ✅ FILTER (UNCHANGED LOGIC)
-// const safeMovies = Array.isArray(movies) ? movies : [];
-
-// const filteredMovies = safeMovies
-//   .filter((movie) => {
-//     const matchesSearch = movie.title
-//       .toLowerCase()
-//       .includes(search.toLowerCase());
-
-//     const matchesGenre =
-//       selectedGenre === "All" || movie.genre === selectedGenre;
-
-//     return matchesSearch && matchesGenre;
-//   });
-
-//     // ✅ ONLY ADD SORTING HERE (SAFE)
-//     .sort((a, b) => {
-//       switch (sortBy) {
-//         case "az":
-//           return a.title.localeCompare(b.title);
-
-//         case "za":
-//           return b.title.localeCompare(a.title);
-
-//         case "ratingHigh":
-//           return b.rating - a.rating;
-
-//         case "ratingLow":
-//           return a.rating - b.rating;
-
-//         case "new":
-//           return b.year - a.year;
-
-//         case "old":
-//           return a.year - b.year;
-
-//         default:
-//           return 0;
-//       }
-//     });
 
 const safeMovies = Array.isArray(movies) ? movies : [];
 

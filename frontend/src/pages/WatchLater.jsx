@@ -60,7 +60,7 @@ const savedMovies = safeMovies.filter((movie) =>
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
           <h1
-            onClick={() => navigate("/")}
+            onClick={() => navigate("/home")}
             className="text-3xl font-extrabold text-red-500 cursor-pointer"
           >
             MovieFlix
@@ -69,7 +69,7 @@ const savedMovies = safeMovies.filter((movie) =>
           <div className="flex gap-3">
 
             <button
-              onClick={() => navigate("/")}
+              onClick={() => navigate("/home")}
               className="bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-lg"
             >
               🏠 Home

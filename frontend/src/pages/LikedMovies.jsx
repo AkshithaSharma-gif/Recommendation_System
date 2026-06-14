@@ -92,13 +92,13 @@ function LikedMovies() {
 
           <h1
             className="text-3xl font-bold text-red-500 cursor-pointer"
-            onClick={() => navigate("/")}
+            onClick={() => navigate("/home")}
           >
             MovieFlix
           </h1>
 
           <button
-            onClick={() => navigate("/")}
+            onClick={() => navigate("/home")}
             className="bg-red-500 hover:bg-red-600 px-4 py-2 rounded-lg"
           >
             Back Home
