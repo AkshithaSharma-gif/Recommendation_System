@@ -22,24 +22,24 @@ export const getMovies = () => axios.get(`${API}`);
 
 // ✅ GET movie by ID (public)
 export const getMovieById = (id) =>
-  axios.get(`${API}/${id}`);
+  axios.get(`${API}/api/movies/${id}`);
 
 // ✅ LIKE movie (protected)
 export const likeMovie = (data) =>
-  axios.post(`${API}/like`, data, authHeader());
+  axios.post(`${API}/api/movies/like`, data, authHeader());
 
 // ✅ GET liked movies (protected)
 export const getLikedMovies = (userId) =>
-  axios.get(`${API}/liked/${userId}`, authHeader());
+  axios.get(`${API}/api/movies/liked/${userId}`, authHeader());
 
 // ✅ WATCH LATER toggle (protected)
 export const toggleWatchLater = (data) =>
-  axios.post(`${API}/watchlater`, data, authHeader());
+  axios.post(`${API}/api/movies/watchlater`, data, authHeader());
 
 // ✅ GET watch later list (if used anywhere)
 export const getWatchLaterMovies = (userId) =>
-  axios.get(`${API}/watchlater/${userId}`, authHeader());
+  axios.get(`${API}/api/movies/watchlater/${userId}`, authHeader());
 
 // ✅ RECOMMENDATIONS (protected)
 export const getRecommendations = (userId) =>
-  axios.get(`${API}/recommendations/${userId}`, authHeader());
+  axios.get(`${API}/api/movies/recommendations/${userId}`, authHeader());
