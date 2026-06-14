@@ -60,14 +60,14 @@ export default function LandingPage() {
           <div className="flex gap-4 mt-8">
 
             <button
-              onClick={() => navigate("/movies")}
+              onClick={() => navigate("/login")}
               className="bg-red-500 hover:bg-red-600 px-6 py-3 rounded-lg font-bold"
             >
               Browse Movies
             </button>
 
             <button
-              onClick={() => navigate("/recommendations")}
+              onClick={() => navigate("/login")}
               className="bg-slate-800 hover:bg-slate-700 px-6 py-3 rounded-lg font-bold"
             >
               Get Recommendations
@@ -143,7 +143,7 @@ export default function LandingPage() {
 
       {/* FOOTER */}
       <footer className="border-t border-slate-800 py-6 text-center text-gray-500">
-        © {new Date().getFullYear()} MovieFlix • Recommendation System
+         MovieFlix • Recommendation System
       </footer>
 
     </div>
