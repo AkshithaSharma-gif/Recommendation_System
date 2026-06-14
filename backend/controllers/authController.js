@@ -2,6 +2,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import User from "../models/UserModel.js";
 
+/*REGISTER USER*/
 export const registerUser = async (req, res) => {
   try {
     const { username, email, password } = req.body;
@@ -20,12 +21,19 @@ export const registerUser = async (req, res) => {
       username,
       email,
       password: hashedPassword,
+
+      // 🔥 IMPORTANT: default role
+      role: "user",
     });
+
+    const userData = newUser.toObject();
+    delete userData.password;
 
     res.status(201).json({
       message: "User registered successfully",
-      user: newUser,
+      user: userData,
     });
+
   } catch (err) {
     res.status(500).json({
       message: err.message,
@@ -33,6 +41,7 @@ export const registerUser = async (req, res) => {
   }
 };
 
+//login user
 export const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -40,49 +49,37 @@ export const loginUser = async (req, res) => {
     const user = await User.findOne({ email }).select("+password");
 
     if (!user) {
-      return res.status(400).json({
-        message: "Invalid email",
-      });
+      return res.status(400).json({ message: "Invalid email" });
     }
 
-    const isMatch = await bcrypt.compare(
-      password,
-      user.password
-    );
+    const isMatch = await bcrypt.compare(password, user.password);
 
     if (!isMatch) {
-      return res.status(400).json({
-        message: "Invalid password",
-      });
+      return res.status(400).json({ message: "Invalid password" });
     }
 
     const token = jwt.sign(
-      {
-        id: user._id,
-      },
+      { id: user._id },
       "secretkey",
-      {
-        expiresIn: "7d",
-      }
+      { expiresIn: "7d" }
     );
 
     const userData = user.toObject();
     delete userData.password;
 
     res.status(200).json({
-    message: "Login successful",
-    token,
-    user: userData,
-    });
+  message: "Login successful",
+  token,
+  user: {
+    _id: user._id,
+    username: user.username,
+    email: user.email,
+    role: user.role,   // ✅ ADD THIS
+    likedMovies: user.likedMovies,
+  }
+});
 
-    res.status(200).json({
-      message: "Login successful",
-      token,
-      user,
-    });
   } catch (err) {
-    res.status(500).json({
-      message: err.message,
-    });
+    res.status(500).json({ message: err.message });
   }
 };

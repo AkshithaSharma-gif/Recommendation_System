@@ -1,10 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import Home from "./pages/Home";
-import Recommendations from "./pages/Recommendations";
-import LikedMovies from "./pages/LikedMovies";
+import Login from "./pages/Login.jsx";
+import Register from "./pages/Register.jsx";
+import Home from "./pages/Home.jsx";
+import Recommendations from "./pages/Recommendations.jsx";
+import LikedMovies from "./pages/LikedMovies.jsx";
+import MovieDetails from "./pages/MovieDetails.jsx";
+import WatchLater from "./pages/WatchLater.jsx";
+import Profile from "./pages/Profile.jsx"
 
 function App() {
   return (
@@ -20,11 +23,24 @@ function App() {
           path="/recommendations"
           element={<Recommendations />}
         />
+        <Route
+  path="/movie/:id"
+  element={<MovieDetails />}
+/>
 
+<Route
+  path="/watchlater"
+  element={<WatchLater />}
+/>
         <Route
           path="/liked"
           element={<LikedMovies />}
         />
+
+        <Route
+  path="/profile"
+  element={<Profile />}
+/>
       </Routes>
     </BrowserRouter>
   );

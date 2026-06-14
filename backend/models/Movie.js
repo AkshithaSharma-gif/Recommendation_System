@@ -31,6 +31,11 @@ const movieSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
+
+    trailer: {
+  type: String,
+  default: "",
+},
   },
   { timestamps: true }
 );

@@ -25,6 +25,13 @@ const userSchema = new mongoose.Schema(
   },
 ],
 
+watchLater: [
+  {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Movie",
+  },
+],
+
     watchHistory: {
       type: [String],
       default: [],

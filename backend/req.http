@@ -46,3 +46,7 @@ Content-Type: application/json
     "title": "Interstellar",
     "genre": "Sci-Fi"
 }
+
+
+###
+GET http://localhost:5000/api/movies/6a1efc4f55e077ff53e44e63
