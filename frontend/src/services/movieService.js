@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = "http://localhost:5000/api/movies";
+const API = "https://movieflix-5uo6.onrender.com";
 
 // 🔐 Helper: attach token safely
 const authHeader = () => {

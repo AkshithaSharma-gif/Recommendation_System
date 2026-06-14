@@ -59,6 +59,8 @@ export const updateMovie = async (req, res) => {
 export const getMovies = async (req, res) => {
   try {
     const movies = await Movie.find();
+    const data = await Movie.find();
+console.log("ALL MOVIES:", data);
 
     res.status(200).json(movies);
   } catch (error) {
@@ -481,3 +483,5 @@ export const getWatchLaterMovies =
       });
     }
   };
+
+
