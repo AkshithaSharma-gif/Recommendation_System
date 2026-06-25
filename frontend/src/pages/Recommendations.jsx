@@ -154,12 +154,12 @@ function Recommendations() {
 
           <div className="flex flex-wrap gap-3">
 
-            {likedMovies.map((movieId) => (
+            {likedMovies.map((movie) => (
   <span
-    key={movieId}
+    key={movie._id}
     className="bg-red-500/20 text-red-400 px-4 py-2 rounded-full"
   >
-    {movieId}
+    {movie.title}
   </span>
 ))}
 
